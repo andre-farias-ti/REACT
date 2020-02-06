@@ -1,0 +1,55 @@
+Index: src/Consultar.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Consultar.js	(revision 590adbb04c145194f2c9307d3fea71c95e07c6f4)
++++ src/Consultar.js	(date 1580942168474)
+@@ -21,7 +21,7 @@
+     return (
+         <div>{err}
+             <form>
+-                ID: <input type="text" onInput={(e)=>
++                ID: <input type="text" onChange={(e)=>
+                 setId(e.target.value)}/>
+                 <button type="button" onClick={ConsultarUser} >Consultar</button>
+             </form>
+@@ -34,4 +34,4 @@
+             </div>
+         </div>
+     )
+-}
+\ No newline at end of file
++}
+Index: src/Salvar.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Salvar.js	(revision 590adbb04c145194f2c9307d3fea71c95e07c6f4)
++++ src/Salvar.js	(date 1580942347376)
+@@ -10,14 +10,14 @@
+     const [address, setAddress] = useState('');
+ 
+     const SalvarUser = () => {
+-        const data = new Object({
++        const data = {
+             username: username,
+             password: password,
+             phoneNumber: phoneNumber,
+             address: address
+-        });
++        }
+         console.log(data);
+-            axios.post("http://localhost:9090/usuarios/salvar", data)
++            axios.post("http://localhost:9090/usuarios", data)
+                 .then(() => {
+                     alert("Salvo com Sucesso");
+                 })
+@@ -50,4 +50,4 @@
+             </div>
+         </div>
+     )
+-}
+\ No newline at end of file
++}
